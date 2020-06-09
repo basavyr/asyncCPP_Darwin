@@ -1,8 +1,14 @@
-# Asynchrounous programming in `C++`
+# Asynchronous programming in `C++`
 
 Testing Asynchronous CPP programming on macOS Catalina. Using `std::future` and `std::async` libraries to perform thread computations.
 
-##  Previous patch
+[This project](https://github.com/basavyr/useful-cpp-algorithms/tree/master/projects/asyncxx) contains an additional implementation dedicated to asynchronous programming.
+
+* Uses different routines that are converted into *futures*
+* The user can choose to generate an arbitrary number of futures (tasks) and then `get` them via the `future.get()` implementation
+* Different functions are launched in `async` mode.
+
+## Previous patch
 
 ___
 

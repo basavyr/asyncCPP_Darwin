@@ -2,8 +2,8 @@
 #include "../include/threads.hh"
 
 #include <memory>
-// #include<utility>
-// #include <functional>
+#include <utility>
+#include <functional>
 
 //! OLD routine using future library
 // int main()
@@ -22,8 +22,16 @@
 // }
 
 //? updated routine running code @ 22 May 2020
+//* implemented future generator @ June 2020
 int main()
 {
     std::vector<double> my_vector{};
-    auto x = std::make_unique<threads::Threads>(1, 4.3, 20, my_vector);
+    // auto threads = std::make_unique<threads::Threads>(1, 4.3, 20, my_vector);
+    auto futures = std::make_unique<Futures::Future>();
+    auto lambda = [](int x) {
+        return static_cast<int>(2 * x);
+    };
+    auto futures_container = futures->generateFutures(1000, 1, lambda);
+    for (auto &&n : futures_container)
+        std::cout << n.get() << "\n";
 }
